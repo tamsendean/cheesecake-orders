@@ -1,0 +1,116 @@
+<!--
+  Tamsen Dean
+  Professor Tribelhorn
+  CS 341
+  25 January 2022
+  HW #2
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!--jQuery library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+  <link rel="stylesheet" href="style.css"> 
+  <!--link external css file and font families from google-->
+  <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Bahianita' rel='stylesheet'>
+</head>
+<!--had to use small css code to align quantity and toppings-->
+<style>
+  td, th { 
+    text-align: left;
+    padding: 3px;
+  }
+</style>
+<h1>Cheesecake Order Form</h1>
+<body>
+
+<div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg"
+ alt="Cheesecake" width="250" height="200">
+</div>
+<!--table for quantity/toppings so they would align left-to-right-->
+<table>
+  <tr>
+    <td>Quantity</td>
+    <td>Topping</td>
+  </tr>
+  <tr>
+    <td><select name="quantity" id="quantity">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  	</select></td>
+    <td><input type="radio" id="topping" name="plain" value="Plain">
+    <label for="plain">Plain</label><br>
+    <input type="radio" id="topping" name="cherry" value="Cherry">
+    <label for="cherry">Cherry</label><br>
+    <input type="radio" id="topping" name="chocolate" value="Chocolate">
+    <label for="chocolate">Chocolate</label></td>
+</table>
+
+<!--notes box as a form to be submitted-->
+<script>
+    var t = $("#topping").val();
+    var q = $("#quantity").val();
+</script>
+<script>
+ $(document).ready(function(){
+    $("form").submit(function(){
+        var str = $("#notes").val();
+        var v = "vegan";
+        if(str.indexOf(v) != -1){
+            alert("Warning: Cheesecakes contain dairy.")
+        } else {
+            $("form").replaceWith("Thank you! Your order has been placed.  Topping: " + t + " Quantity: " + q + " Notes: " + str);
+            $("table").remove();
+        }
+    });
+});
+</script>
+
+<form>
+<label for="notes">Notes:</label><br>
+<textarea id="notes" name="notes" rows="5" cols="45">
+Enter any special instructions here.
+  </textarea>
+  <br>
+  <input type="submit" value="Order">
+</form>
+
+
+<!--create list items in unordered list for bullet points-->
+<script>
+    $(document).ready(function(){
+    $( "a" ).click(function() {
+      var monthval = $(this).attr("value");
+      $("#dropbut").text(monthval);
+    });
+    });
+</script>
+
+<h3>Total Orders Last </h3>
+<div class="dropdown">
+  <button class="dropbtn">Jan</button>
+  <div class="dropdown-content">
+    <a href="#">Jan</a>
+    <a href="#">Feb</a>
+    <a href="#">Mar</a>
+    <a href="#">Apr</a>
+    <a href="#">May</a>
+    <a href="#">Jun</a>
+    <a href="#">Jul</a>
+    <a href="#">Aug</a>
+    <a href="#">Sep</a>
+    <a href="#">Oct</a>
+    <a href="#">Nov</a>
+    <a href="#">Dec</a>
+  </div>
+</div>
+
+</body>
+</html>
