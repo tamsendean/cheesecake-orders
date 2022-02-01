@@ -2,7 +2,7 @@
     var t = $("#topping").val();
     var q = $("#quantity").val();
 </script><script>
-        $(document).ready(function(){$("form").submit(function () {
+        $(document).ready(function(){$("form").on(function () {
             var str = $("#notes").val();
             var v = "vegan";
             if (str.indexOf(v) != -1) {
@@ -14,7 +14,7 @@
         })};
     </script><script>
     $(document).ready(function(){
-    $( "a" ).click(function() {
+    $( "a" ).on(function() {
       var monthval = $(this).attr("value");
       $("#dropbut").text(monthval);
     })};
