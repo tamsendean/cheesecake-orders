@@ -9,10 +9,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="javascripts/scripts.js"></script>
     <!--jQuery library-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
 </script>
-  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="stylesheets/style.css"> 
   <!--link external css file and font families from google-->
   <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Bahianita' rel='stylesheet'>
@@ -54,25 +55,6 @@
 </table>
 
 <!--notes box as a form to be submitted-->
-<script>
-    var t = $("#topping").val();
-    var q = $("#quantity").val();
-</script>
-<script>
- $(document).ready(function(){
-    $("form").submit(function(){
-        var str = $("#notes").val();
-        var v = "vegan";
-        if(str.indexOf(v) != -1){
-            alert("Warning: Cheesecakes contain dairy.")
-        } else {
-            $("form").replaceWith("Thank you! Your order has been placed.  Topping: " + t + " Quantity: " + q + " Notes: " + str);
-            $("table").remove();
-        }
-    });
-});
-</script>
-
 <form>
 <label for="notes">Notes:</label><br>
 <textarea id="notes" name="notes" rows="5" cols="45">
@@ -82,17 +64,7 @@ Enter any special instructions here.
   <input type="submit" value="Order">
 </form>
 
-
 <!--create list items in unordered list for bullet points-->
-<script>
-    $(document).ready(function(){
-    $( "a" ).click(function() {
-      var monthval = $(this).attr("value");
-      $("#dropbut").text(monthval);
-    });
-    });
-</script>
-
 <h3>Total Orders Last </h3>
 <div class="dropdown">
   <button class="dropbtn">Jan</button>
